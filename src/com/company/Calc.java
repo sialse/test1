@@ -141,7 +141,7 @@ public class Calc {
                 return "I";
             }
             else
-                return "0";
+                return Integer.toString(result);
         }
     }
 
