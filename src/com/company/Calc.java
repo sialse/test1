@@ -4,6 +4,7 @@ public class Calc {
     private int A=0;
     private int B=0;
     private int result;
+    private boolean resultisarab=false;
 
 
     public Calc(String str){
@@ -16,6 +17,7 @@ public class Calc {
             A=ConvertStringToInt(lines[0]);
             B=ConvertStringToInt(lines[1]);
             result=A*B;
+            if((isInt(lines[0]))&(isInt(lines[1]))) resultisarab=true;
         }
         else if(str.contains("-")){
             String[] lines = str.split("\\-");
@@ -25,6 +27,7 @@ public class Calc {
             A=ConvertStringToInt(lines[0]);
             B=ConvertStringToInt(lines[1]);
             result=A-B;
+            if((isInt(lines[0]))&(isInt(lines[1]))) resultisarab=true;
         }
         else if(str.contains("+")){
             String[] lines = str.split("\\+");
@@ -34,6 +37,7 @@ public class Calc {
             A=ConvertStringToInt(lines[0]);
             B=ConvertStringToInt(lines[1]);
             result=A+B;
+            if((isInt(lines[0]))&(isInt(lines[1]))) resultisarab=true;
         }
         else if(str.contains("/")){
             String[] lines = str.split("\\/");
@@ -43,6 +47,7 @@ public class Calc {
             A=ConvertStringToInt(lines[0]);
             B=ConvertStringToInt(lines[1]);
             result=A/B;
+            if((isInt(lines[0]))&(isInt(lines[1]))) resultisarab=true;
         }
         else{
             throw new UnsupportedOperationException("Error");
@@ -100,8 +105,45 @@ public class Calc {
         }
 
     }
-    public int calculate(){
-        return result;
+    public String calculate(){
+        if(resultisarab){
+            return Integer.toString(result);
+        }
+        else{
+            if(result == 10){
+                return "X";
+            }
+            else if(result == 9){
+                return "IX";
+            }
+            else if(result == 8){
+                return "VIII";
+            }
+            else if(result == 7){
+                return "VII";
+            }
+            else if(result == 6){
+                return "VI";
+            }
+            else if(result == 5){
+                return "V";
+            }
+            else if(result == 4){
+                return "IV";
+            }
+            else if(result == 3){
+                return "III";
+            }
+            else if(result == 2){
+                return "II";
+            }
+            else if(result == 1){
+                return "I";
+            }
+            else
+                return "0";
+        }
     }
-    //public int Calculate(int a, int b);
-}
+
+    }
+
